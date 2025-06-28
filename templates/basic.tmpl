@@ -1,0 +1,28 @@
+package {{.Package}}
+
+import (
+	"fmt"
+	"time"
+)
+
+// {{.StructName}} represents a generated struct
+type {{.StructName}} struct {
+	ID        string    `json:"id"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
+}
+
+// New{{.StructName}} creates a new {{.StructName}}
+func New{{.StructName}}(id string) *{{.StructName}} {
+	return &{{.StructName}}{
+		ID:        id,
+		CreatedAt: time.Now(),
+		UpdatedAt: time.Now(),
+	}
+}
+
+// Print prints the {{.StructName}} details
+func (s *{{.StructName}}) Print() {
+	fmt.Printf("ID: %s\nCreated: %v\nUpdated: %v\n", 
+		s.ID, s.CreatedAt, s.UpdatedAt)
+}
